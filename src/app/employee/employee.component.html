@@ -1,0 +1,121 @@
+<div class="container">
+  <h2>This is Angular Assignment1</h2>
+  <form (ngSubmit)="addEmployee()" [formGroup]="employeeForm">
+
+    <div class="form-group">
+      <label for="firstname">First Name :</label>
+      <input class="form-control" type="text" id="firstname" formControlName="firstName" >
+      <!-- <div class="alert alert-danger" *ngIf="employeeForm.touched || employeeForm.dirty && employeeForm.valid">
+        <span *ngIf="employeeForm.get('firstName')!.errors?.['required'] ">Enter your first name</span>
+      </div> -->
+    </div>
+    <br>
+
+    <div class="form-group">
+      <label for="lastname">Last Name :</label>
+      <input class="form-control" type="text" id="lastname" formControlName="lastName" >
+      <!-- <div class="alert alert-danger" *ngIf="employeeForm.touched || employeeForm.dirty && employeeForm.valid">
+      <span class="alert alert-danger" *ngIf="employeeForm.get('lastName')!.errors?.['minlength'] ">Enter your last name</span>
+    </div>-->
+    </div>
+    <br>
+
+    <div class="form-group">
+      <label for="email">Email :</label>
+      <input class="form-control" type="email" id="email" formControlName="email" >
+      <!-- <div class="alert alert-danger" *ngIf="employeeForm.touched || employeeForm.dirty && employeeForm.valid">
+      <span *ngIf="employeeForm.get('email')!.errors?.['required']">Enter your Email</span>
+      <span *ngIf="employeeForm.get('email')!.errors?.['email']">Enter a valid Email</span>
+    </div> -->
+  </div>
+    <br>
+
+     <div class="form-group">
+      <label for="contactno">Contact Number :</label>
+      <input class="form-control" type="tel" name="contactnumber" id="contactnumber"
+      formControlName="contactNumber">
+      <!-- <div class="alert alert-danger"  *ngIf="contactnoField.errors?.['required'] && form.submitted">Enter your contact number</div>-->
+    </div>
+    <br>
+
+    <div class="form-group">
+      <label for="address">Address :</label>
+      <textarea class="form-control" name="address" rows="5" id="address" formControlName="address" >
+    </textarea>
+      <!-- <div class="alert alert-danger" *ngIf="addressField.errors?.['required'] && form.submitted">Enter your address
+      </div> -->
+    </div>
+    <br>
+
+    <div class="form-group">
+      <label for="username">Username :</label>
+      <input class="form-control" type="text" name="username" id="username" formControlName="username">
+      <!-- <div class="alert alert-danger" *ngIf="usernameField.errors?.['required'] && form.submitted">Enter your username
+      </div> -->
+    </div>
+    <br>
+
+    <div class="form-group">
+      <label for="password">Password :</label>
+      <input class="form-control" type="password" name="password" id="password"  formControlName="password">
+      <!-- <div class="alert alert-danger" *ngIf="passwordField.errors?.['required'] && form.submitted">Enter your password
+      </div>
+      <div class="alert alert-danger" *ngIf="passwordField.errors?.['minlength'] && form.submitted">Password must be at
+        least 8 characters</div>-->
+    </div>
+    <br>
+
+    <div class="form-group" >
+      <label for="gender">Gender :</label>
+      <br>
+      <label class="radio-inline">
+        <input type="radio" name="gender" value="male" formControlName="gender" >
+        Male
+      </label>
+      <br>
+      <label class="radio-inline">
+        <input type="radio" name="gender" value="female" formControlName="gender">
+        Female
+      </label>
+      <!-- <div class="alert alert-danger" *ngIf="gender.errors?.['required'] && form.submitted">gender is required</div>-->
+    </div>
+    <br>
+
+    <div class="form-group">
+      <label for="qualification">Qualification : </label>
+      <select class="form-control" name="qualification" id="qualification" formControlName="qualification" >
+        <option *ngFor="let degree of qualification">{{degree}}</option>
+      </select>
+
+    </div>
+    <br>
+
+    <div class="form-group">
+      <label for="experience">Experience : </label>
+      <select class="form-control" name="experience" id="experience" >
+        <option *ngFor="let years of experience">{{years}}</option>
+      </select>
+
+    </div>
+    <br>
+
+    <div class="form-group">
+      <label for="codingLanguages"> Coding languages :</label>
+      <br>
+      <div class="form-check" *ngFor="let language of codingLanguages">
+        <input class="form-check-input" type="checkbox" name="codingLanguages" id={{language}}
+        formControlName="codingLanguages">
+        <label class="form-check-label" for={{language}}>
+          {{language}}
+        </label>
+      </div>
+    </div>
+    <br>
+
+<button type="submit" class="btn btn-primary">Save</button>
+
+
+
+  </form>
+</div>
+{{employeeForm.value | json}}
